@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authapi.apps.AuthapiConfig',
+    'protected_resource',
     'djoser',
     'rest_framework',
     'corsheaders'

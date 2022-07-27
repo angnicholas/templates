@@ -13,9 +13,9 @@ const LoginForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handle_login = (e, email, password) => {
-    console.log(email, password);
-  }
+  // const handle_login = (e, email, password) => {
+  //   console.log(email, password);
+  // }
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -41,7 +41,7 @@ const LoginForm = (props) => {
         </Typography>
         <Box
           component="form"
-          onSubmit={(e) => handle_login(e, email, password)}
+          onSubmit={(e) => props.handle_login(e, email, password)}
           noValidate
           sx={{ mt: 1 }}
         >
@@ -105,4 +105,9 @@ const LoginForm = (props) => {
 
 }
 
-export default LoginForm
+LoginForm.propTypes = {
+  handle_login: PropTypes.func.isRequired,
+  errorMessage: PropTypes.bool,
+};
+
+export default LoginForm;

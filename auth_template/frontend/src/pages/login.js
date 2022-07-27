@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LoginForm from "../components/loginform";
+import { login, logout } from "../services/auth.loginlogout";
 
 const LoginPage = (props) => {
 
@@ -9,26 +10,28 @@ const LoginPage = (props) => {
     setRequestFailed(true);
   }
 
-  const handle_login = (e, data) => {
+  const handle_login = (e, email, password) => {
+    console.log(e, email, password);
+    login(email, password, setRequestFailedTrue);
     //do something
     e.preventDefault();
   }
 
   const handle_logout = () => {
-    //do something
+    logout();
     console.log('hello');
   }
 
   if (requestFailed) {
     return (
       <div className="LoginForm">
-        <LoginForm handle_login={23} errorMessage={true} />
+        <LoginForm handle_login={handle_login} errorMessage={true} />
       </div>
     );
   } else {
     return (
       <div className="LoginForm">
-        <LoginForm handle_login={23} />
+        <LoginForm handle_login={handle_login} />
       </div>
     );
   }

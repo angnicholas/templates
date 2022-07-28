@@ -1,10 +1,11 @@
 import api from "./auth.interceptor";
 
-export async function getProtected(){
+export async function getProtected(setContent, setLoading){
   await api
-    .get("/protected")
+    .get("/protected/")
     .then((res) => {
-      return res
+      setContent(res.data);
+      setLoading(false);
     })
     .catch((err) => console.log(err));
 }

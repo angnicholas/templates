@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import LoginPage from "./pages/login";
+import ProtectedPage from "./pages/protectedpage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const yeet = {
   x : 'yass',
@@ -12,7 +14,12 @@ const yeet = {
 
 function App() {
   return (
-    <LoginPage />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="protected" element={<ProtectedPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
